@@ -6,14 +6,15 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Livro> livros = new ArrayList<>();
         int idMenu = 0;
-        while (idMenu != 4){
+        while (idMenu != 5){
         System.out.println();
         System.out.println("=== Cadastro de Livros ===");
         System.out.println();
         System.out.println("1 - Cadastrar novo livro");
         System.out.println("2 - Listar livros");
         System.out.println("3 - Remover livro");
-        System.out.println("4 - Sair");
+        System.out.println("4 - Atualizar livro");
+        System.out.println("5 - Sair");
         System.out.println();
         System.out.print("Escolha uma opção: ");
         idMenu = scanner.nextInt();
@@ -32,6 +33,8 @@ public class Main {
             System.out.println();
             System.out.println("=== Listar livros ===");
             System.out.println();
+            System.out.println("Total de livros: " + livros.size());
+            System.out.println();
             for (int c = 0;c < livros.size();c++){
                 System.out.println("Id:" + c);
                 livros.get(c).mostrar();
@@ -42,8 +45,24 @@ public class Main {
             System.out.println();
             System.out.print("Digite o Id do livro que deseja remover: ");
             int idLivroRemover = scanner.nextInt();
+            System.out.println();
             System.out.println("O Livro com o titulo : " + livros.get(idLivroRemover).titulo + " Foi removido com sucesso!");
             livros.remove(idLivroRemover);
+        } else if (idMenu == 4) {
+            System.out.println();
+            System.out.println("=== Atualizar livro ===");
+            System.out.println();
+            System.out.print("Digite o Id do livro que deseja atualizar: ");
+            int idLivroAtualizar = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Digite o nome do livro: ");
+            livros.get(idLivroAtualizar).titulo = scanner.nextLine();
+            System.out.print("Digite o autor do livro: ");
+            livros.get(idLivroAtualizar).autor = scanner.nextLine();
+            System.out.println();
+            System.out.println("Livro cadastrado com sucesso!");
+            System.out.println();
+            livros.get(idLivroAtualizar).mostrar();
         }
 
         }
