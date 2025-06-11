@@ -6,13 +6,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Livro> livros = new ArrayList<>();
         int idMenu = 0;
-        while (idMenu != 3){
+        while (idMenu != 4){
         System.out.println();
         System.out.println("=== Cadastro de Livros ===");
         System.out.println();
         System.out.println("1 - Cadastrar novo livro");
         System.out.println("2 - Listar livros");
-        System.out.println("3 - Sair");
+        System.out.println("3 - Remover livro");
+        System.out.println("4 - Sair");
         System.out.println();
         System.out.print("Escolha uma opção: ");
         idMenu = scanner.nextInt();
@@ -35,6 +36,14 @@ public class Main {
                 System.out.println("Id:" + c);
                 livros.get(c).mostrar();
             }
+        } else if (idMenu == 3) {
+            System.out.println();
+            System.out.println("=== Remover livro ===");
+            System.out.println();
+            System.out.print("Digite o Id do livro que deseja remover: ");
+            int idLivroRemover = scanner.nextInt();
+            System.out.println("O Livro com o titulo : " + livros.get(idLivroRemover).titulo + " Foi removido com sucesso!");
+            livros.remove(idLivroRemover);
         }
 
         }
